@@ -1,0 +1,53 @@
+# Blender 3.2.2 MTL File: 'None'
+# www.blender.org
+
+newmtl computer
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/computer_baseColor.png
+map_Ke C:/computer_emissive.png
+map_Bump -bm 1.000000 C:/computer_normal.png
+
+newmtl keyboard
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/keyboard_baseColor.png
+map_Bump -bm 1.000000 C:/keyboard_normal.png
+
+newmtl keys
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/keys_baseColor.png
+map_Ke C:/keys_emissive.png
+map_Bump -bm 1.000000 C:/keys_normal.png
+
+newmtl screen
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/screen_baseColor.png
+map_Ke C:/screen_emissive.png
+map_Bump -bm 1.000000 C:/screen_normal.png
