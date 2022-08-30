@@ -27,6 +27,9 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
+Builds/
+Temp/
+Libirary/PackageCache/
 [Bb]in/
 [Oo]bj/
 [Oo]ut/
@@ -362,3 +365,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /Temp
+/Builds

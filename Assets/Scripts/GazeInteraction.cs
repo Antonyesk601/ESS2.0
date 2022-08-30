@@ -25,7 +25,7 @@ public class GazeInteraction : MonoBehaviour
             reticleRenderer.color = Color.white;
         }        
     }
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         reticleRenderer.transform.position = transform.position + transform.forward * 1.0f;
         reticleRenderer.transform.rotation = transform.rotation;
@@ -39,7 +39,6 @@ public class GazeInteraction : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, float.MaxValue, LayerMask.GetMask("Interactable")) && hit.collider.gameObject == interactable)
         {
             hit.collider.gameObject.GetComponent<Interactable>().action();
-            Debug.Log(interactable.name);
         }
     }
 }
