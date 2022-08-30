@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637962448247900269
+      ticks: 637971840564876024
     m_Hash: 371724865
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -4315,6 +4315,7 @@ m_ResolvedPackages:
     - 1.2.0-exp.5
     - 1.2.0-exp.6
     - 1.2.0-exp.7
+    - 1.2.0
     compatible:
     - 1.0.1
     - 1.1.0
@@ -4326,6 +4327,7 @@ m_ResolvedPackages:
     - 1.2.0-exp.5
     - 1.2.0-exp.6
     - 1.2.0-exp.7
+    - 1.2.0
     verified: 1.0.1
   dependencies:
   - name: com.unity.test-framework
@@ -4504,9 +4506,11 @@ m_ResolvedPackages:
     - 1.2.0
     - 1.3.0
     - 1.4.1
+    - 1.4.2
     compatible:
     - 1.3.0
     - 1.4.1
+    - 1.4.2
     verified: 1.3.0
   dependencies:
   - name: com.unity.modules.uielements

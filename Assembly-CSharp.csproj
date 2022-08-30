@@ -57,9 +57,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\TaskUI.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\TaskScheduler.cs" />
     <Compile Include="Assets\Scripts\GazeInteraction.cs" />
     <Compile Include="Assets\Scripts\Task.cs" />
+    <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.16.0\Hello Cardboard\Scripts\CardboardStartup.cs" />
+    <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.16.0\Hello Cardboard\Scripts\ObjectController.cs" />
+    <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.16.0\Hello Cardboard\Scripts\CameraPointer.cs" />
+    <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.16.0\Hello Cardboard\Scripts\VrModeController.cs" />
+    <Compile Include="Assets\Scripts\InitTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
