@@ -15,7 +15,13 @@ public class Task : MonoBehaviour, Interactable
     {
         spriteRenderer = (from mat in GetComponentsInChildren<MeshRenderer>() select mat.materials[1]).ToList();
     }
-
+    private void Update()
+    {
+        if (spriteRenderer[0].color == Target)
+        {
+            GameManager.Instance.schedueler.markTask(task);
+        }
+    }
     public void action()
     {
         StartCoroutine(changeColor());

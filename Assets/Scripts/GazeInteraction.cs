@@ -32,7 +32,8 @@ public class GazeInteraction : MonoBehaviour
     }
     public IEnumerator startAction(GameObject interactable)
     {
-
+        if(!(GameManager.Instance.initailized||interactable.name.ToLower().Contains("init")))
+            yield break;
         yield return new WaitForSeconds(1.0f);
         
         RaycastHit hit;

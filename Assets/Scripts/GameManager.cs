@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance 
@@ -21,7 +21,14 @@ public class GameManager : MonoBehaviour
     }
     private static GameManager _instance;
     public List<Color> Colors;
+    public bool initailized;
+    public int SimilarColorCount = 0;
+    public TaskScheduler schedueler;
     // Start is called before the first frame update
+    private void Start()
+    {
+        initailized = false;
+    }
     void Awake()
     {
         if (Instance != this && Instance != null)

@@ -10,8 +10,11 @@ public class InitTask : MonoBehaviour,Interactable
     private Dictionary<Color,int> Chosen;
     [HideInInspector]
     public Tasks Task = Tasks.Init;
+    private bool started;
+    
     private void Start()
     {
+        started = false;
         Chosen= new Dictionary<Color,int>();
         lighting.intensity = 0;
         foreach (Transform interactable in interactables.transform)
@@ -29,9 +32,13 @@ public class InitTask : MonoBehaviour,Interactable
             }
         }
         maxSimilarColorCount = Mathf.Max(Chosen.Values.ToArray());
+        GameManager.Instance.SimilarColorCount = maxSimilarColorCount;
     }
     public void action()
     {
+        if (started)
+            return;
+        started = true;
         foreach (Transform interactable in interactables.transform)
         {
             if (interactable == transform)
@@ -69,10 +76,9 @@ public class InitTask : MonoBehaviour,Interactable
         {
             lighting.intensity = (CurrentTime / 5.0f)*4.0f;
             CurrentTime += Time.smoothDeltaTime;
-            Debug.Log(CurrentTime);
             yield return null;
-
         }
+        GameManager.Instance.initailized = true;
     }
 
 }
