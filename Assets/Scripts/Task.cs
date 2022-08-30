@@ -21,6 +21,10 @@ public class Task : MonoBehaviour, Interactable
         {
             GameManager.Instance.schedueler.markTask(task);
         }
+        else
+        {
+            GameManager.Instance.schedueler.unmarkTask(task);
+        }
     }
     public void action()
     {

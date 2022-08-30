@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
     public bool initailized;
     public int SimilarColorCount = 0;
     public TaskScheduler schedueler;
+    public Dictionary<Color, int> Chosen;
+    public GameObject Interactables;
+    public int IntendedTaskCount = 4;
+
     // Start is called before the first frame update
     private void Start()
     {

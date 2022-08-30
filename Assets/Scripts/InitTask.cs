@@ -7,7 +7,6 @@ public class InitTask : MonoBehaviour,Interactable
     public Light lighting;
     public GameObject interactables;
     public int maxSimilarColorCount;
-    private Dictionary<Color,int> Chosen;
     [HideInInspector]
     public Tasks Task = Tasks.Init;
     private bool started;
@@ -15,7 +14,7 @@ public class InitTask : MonoBehaviour,Interactable
     private void Start()
     {
         started = false;
-        Chosen= new Dictionary<Color,int>();
+        GameManager.Instance.Chosen= new Dictionary<Color,int>();
         lighting.intensity = 0;
         foreach (Transform interactable in interactables.transform)
         {
@@ -23,15 +22,15 @@ public class InitTask : MonoBehaviour,Interactable
                 continue;
             List<Material> spriteRenderer = (from mat in interactable.GetComponentsInChildren<MeshRenderer>() select mat.materials[1]).ToList();
             Color currentColor= GameManager.Instance.Colors[Random.Range(0, GameManager.Instance.Colors.Count)]; 
-                if (!Chosen.ContainsKey(currentColor))
-                    Chosen[currentColor] = 0;
-                Chosen[currentColor]++;
+                if (!GameManager.Instance.Chosen.ContainsKey(currentColor))
+                    GameManager.Instance.Chosen[currentColor] = 0;
+                GameManager.Instance.Chosen[currentColor]++;
             foreach (Material sr in spriteRenderer)
             {
                 sr.color = new Color(currentColor.r,currentColor.g,currentColor.b,0.0f);
             }
         }
-        maxSimilarColorCount = Mathf.Max(Chosen.Values.ToArray());
+        maxSimilarColorCount = Mathf.Max(GameManager.Instance.Chosen.Values.ToArray());
         GameManager.Instance.SimilarColorCount = maxSimilarColorCount;
     }
     public void action()
@@ -79,6 +78,23 @@ public class InitTask : MonoBehaviour,Interactable
             yield return null;
         }
         GameManager.Instance.initailized = true;
+        GenerateMissionsList();
+    }
+    public void GenerateMissionsList()
+    {
+        HashSet<Task> taskSet = new HashSet<Task>();
+        while (taskSet.Count != GameManager.Instance.IntendedTaskCount)
+        {
+            Task T = GameManager.Instance.Interactables.GetComponentsInChildren<Task>()[Random.Range(0, GameManager.Instance.Interactables.transform.childCount - 1)];
+            taskSet.Add(T);
+
+        }
+        GameObject.Find("Scheduler").GetComponent<TaskScheduler>().MissionTasksList = (from task in taskSet select task.task).ToList();
+        foreach (Task T in taskSet)
+        {
+            T.Target = GameManager.Instance.Colors[(GameManager.Instance.SimilarColorCount + GameManager.Instance.Chosen.Values.Count + GameManager.Instance.IntendedTaskCount + (int)T.task+ Random.Range(0,GameManager.Instance.Colors.Count)) % GameManager.Instance.Colors.Count];
+
+        }
     }
 
 }
