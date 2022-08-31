@@ -27,11 +27,12 @@ public class GazeInteraction : MonoBehaviour
         }        
         reticleRenderer.transform.position = transform.position + transform.forward * 1.0f;
         reticleRenderer.transform.rotation = Quaternion.Euler((float)System.Math.Round(transform.rotation.eulerAngles.x, 2), (float)System.Math.Round(transform.rotation.eulerAngles.y, 2), (float)System.Math.Round(transform.rotation.eulerAngles.z, 2));
-        if (Input.GetTouch(0).phase== TouchPhase.Stationary)
-        {
-            SceneManager.UnloadSceneAsync(1);
-            SceneManager.LoadScene(0);
-        }
+        if(Input.touchCount>0)
+            if (Input.GetTouch(0).phase== TouchPhase.Stationary)
+            {
+                SceneManager.UnloadSceneAsync(1);
+                SceneManager.LoadScene(0);
+            }
     }
     public IEnumerator startAction(GameObject interactable)
     {

@@ -27,8 +27,8 @@ public class TaskUI : MonoBehaviour
 
         MessageKWDict[Tasks.Rotatation.ToString()] = new Dictionary<Color, string>();
         MessageKWDict[Tasks.Rotatation.ToString()].Add(GameManager.Instance.Colors[0], "20N 90W 40D");
-        MessageKWDict[Tasks.Rotatation.ToString()].Add(GameManager.Instance.Colors[1], "29S 90W 70U");
         MessageKWDict[Tasks.Rotatation.ToString()].Add(GameManager.Instance.Colors[2], "-92N 40E 6D");
+        MessageKWDict[Tasks.Rotatation.ToString()].Add(GameManager.Instance.Colors[1], "29S 90W 70U");
         MessageKWDict[Tasks.Rotatation.ToString()].Add(GameManager.Instance.Colors[3], "6S 6W 6D");
         MessageKWDict[Tasks.Rotatation.ToString()].Add(GameManager.Instance.Colors[4], "4N 2E 0UD");
         MessageKWDict[Tasks.Rotatation.ToString()].Add(GameManager.Instance.Colors[5], "64N 9W 40U");
@@ -58,7 +58,7 @@ public class TaskUI : MonoBehaviour
         MessageKWDict[Tasks.Throttle.ToString()].Add(GameManager.Instance.Colors[2], "186,282 mps");
         MessageKWDict[Tasks.Throttle.ToString()].Add(GameManager.Instance.Colors[3], "9000 years/second");
         MessageKWDict[Tasks.Throttle.ToString()].Add(GameManager.Instance.Colors[4], "5555 booms/minute");
-        MessageKWDict[Tasks.Throttle.ToString()].Add(GameManager.Instance.Colors[5], "0 the universe moves around you");
+        MessageKWDict[Tasks.Throttle.ToString()].Add(GameManager.Instance.Colors[5], "the universe moves around you");
         MessageKWDict[Tasks.Throttle.ToString()].Add(GameManager.Instance.Colors[6], "591c3 visions/sandworm");
 
         MessageKWDict[Tasks.SensorsCalibrated.ToString()] = new Dictionary<Color, string>();
@@ -110,7 +110,7 @@ public class TaskUI : MonoBehaviour
             {
                 taskString+= displayTasks[task.Item1]+" "+(task.Item2==false?" NOT ":"")+"completed\n";
             }
-            infoStringMid += "Destination : "+ MessageKWDict["DestinationMapper"][GameManager.Instance.Colors[(GameManager.Instance.SimilarColorCount + GameManager.Instance.Chosen.Values.Count + GameManager.Instance.IntendedTaskCount)]]+"\n";
+            infoStringMid += "Destination : "+ MessageKWDict["DestinationMapper"][GameManager.Instance.Colors[(GameManager.Instance.SimilarColorCount + GameManager.Instance.Chosen.Values.Count + GameManager.Instance.IntendedTaskCount)%GameManager.Instance.Colors.Count]]+"\n";
             foreach (var task in scheduler.taskList.GetRange(0, scheduler.taskList.Count / 2))
             {
                 infoStringMid += displayTasks[task.Item1] + " : " + MessageKWDict[task.Item1.ToString()][GameManager.Instance.Interactables.transform.GetChild((int)task.Item1).GetComponent<Task>().Target]+"\n";
