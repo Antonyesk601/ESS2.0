@@ -110,6 +110,9 @@ public class TaskUI : MonoBehaviour
             {
                 taskString+= displayTasks[task.Item1]+" "+(task.Item2==false?" NOT ":"")+"completed\n";
             }
+
+
+
             infoStringMid += MessageKWDict["DestinationMapper"][GameManager.Instance.Colors[(GameManager.Instance.SimilarColorCount + GameManager.Instance.Chosen.Values.Count + GameManager.Instance.IntendedTaskCount)]];
             foreach (var task in scheduler.taskList.GetRange(0, scheduler.taskList.Count / 2))
             {
