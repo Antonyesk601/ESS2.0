@@ -22,6 +22,7 @@ public class InitTask : MonoBehaviour,Interactable
                 continue;
             List<Material> spriteRenderer = (from mat in interactable.GetComponentsInChildren<MeshRenderer>() select mat.materials[1]).ToList();
             Color currentColor= GameManager.Instance.Colors[Random.Range(0, GameManager.Instance.Colors.Count)]; 
+
                 if (!GameManager.Instance.Chosen.ContainsKey(currentColor))
                     GameManager.Instance.Chosen[currentColor] = 0;
                 GameManager.Instance.Chosen[currentColor]++;
@@ -93,6 +94,12 @@ public class InitTask : MonoBehaviour,Interactable
         foreach (Task T in taskSet)
         {
             T.Target = GameManager.Instance.Colors[(GameManager.Instance.SimilarColorCount + GameManager.Instance.Chosen.Values.Count + GameManager.Instance.IntendedTaskCount + (int)T.task) % GameManager.Instance.Colors.Count];
+            if (T.Target == T.gameObject.GetComponentInChildren<MeshRenderer>().materials[1].color)
+            {
+                Debug.Log("SIMI");
+                T.Target = GameManager.Instance.Colors[(GameManager.Instance.SimilarColorCount + GameManager.Instance.Chosen.Values.Count + GameManager.Instance.IntendedTaskCount + (int)T.task+1) % GameManager.Instance.Colors.Count ];
+            }
+
         }
         GameObject.Find("Scheduler").GetComponent<TaskScheduler>().taskList = (from task in taskSet select (task.task, false)).ToList();
     }

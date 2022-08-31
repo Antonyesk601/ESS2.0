@@ -39,7 +39,7 @@ public class TaskUI : MonoBehaviour
         MessageKWDict[Tasks.Fuel.ToString()].Add(GameManager.Instance.Colors[1], "3000 MJ");
         MessageKWDict[Tasks.Fuel.ToString()].Add(GameManager.Instance.Colors[2], "10 YJ");
         MessageKWDict[Tasks.Fuel.ToString()].Add(GameManager.Instance.Colors[3], "110 ZJ");
-        MessageKWDict[Tasks.Fuel.ToString()].Add(GameManager.Instance.Colors[4], "50877 MJ");
+        MessageKWDict[Tasks.Fuel.ToString()].Add(GameManager.Instance.Colors[4], "20877 MJ");
         MessageKWDict[Tasks.Fuel.ToString()].Add(GameManager.Instance.Colors[5], "9999 ZJ");
         MessageKWDict[Tasks.Fuel.ToString()].Add(GameManager.Instance.Colors[6], "0 J");
 
@@ -110,6 +110,7 @@ public class TaskUI : MonoBehaviour
             {
                 taskString+= displayTasks[task.Item1]+" "+(task.Item2==false?" NOT ":"")+"completed\n";
             }
+            infoStringMid += MessageKWDict["DestinationMapper"][GameManager.Instance.Colors[(GameManager.Instance.SimilarColorCount + GameManager.Instance.Chosen.Values.Count + GameManager.Instance.IntendedTaskCount)]];
             foreach (var task in scheduler.taskList.GetRange(0, scheduler.taskList.Count / 2))
             {
                 infoStringMid += displayTasks[task.Item1] + " : " + MessageKWDict[task.Item1.ToString()][GameManager.Instance.Interactables.transform.GetChild((int)task.Item1).GetComponent<Task>().Target]+"\n";
