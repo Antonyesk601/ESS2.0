@@ -38,6 +38,6 @@ public class TaskScheduler : MonoBehaviour
 }
 public enum Tasks 
 {
-    Init, Throttle, Fuel, Rotatation, Engines, SensorsCalibrated, Readings, DetachBack,
+    Init=7, Throttle=1, Fuel=4, Rotatation=0, Engines=2, SensorsCalibrated=6, Readings=5, WeightLimitation=3,
 }
 

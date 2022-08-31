@@ -92,9 +92,8 @@ public class InitTask : MonoBehaviour,Interactable
         GameObject.Find("Scheduler").GetComponent<TaskScheduler>().MissionTasksList = (from task in taskSet select task.task).ToList();
         foreach (Task T in taskSet)
         {
-            T.Target = GameManager.Instance.Colors[(GameManager.Instance.SimilarColorCount + GameManager.Instance.Chosen.Values.Count + GameManager.Instance.IntendedTaskCount + (int)T.task+ Random.Range(0,GameManager.Instance.Colors.Count)) % GameManager.Instance.Colors.Count];
-
+            T.Target = GameManager.Instance.Colors[(GameManager.Instance.SimilarColorCount + GameManager.Instance.Chosen.Values.Count + GameManager.Instance.IntendedTaskCount + (int)T.task) % GameManager.Instance.Colors.Count];
         }
+        GameObject.Find("Scheduler").GetComponent<TaskScheduler>().taskList = (from task in taskSet select (task.task, false)).ToList();
     }
-
 }
